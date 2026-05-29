@@ -4,6 +4,8 @@ import Image from "next/image";
 import { ArrowRight } from "lucide-react";
 
 export default function Projects() {
+  const basePath = process.env.NODE_ENV === "production" ? "/kiran-nursery" : "";
+
   const projects = [
     {
       id: "zen-courtyard",
@@ -65,7 +67,7 @@ export default function Projects() {
               {/* Image side */}
               <div className="relative h-80 sm:h-96 w-full overflow-hidden bg-nursery-sand">
                 <Image
-                  src={project.image}
+                  src={`${basePath}${project.image}`}
                   alt={project.title}
                   fill
                   sizes="(max-width: 768px) 100vw, 33vw"

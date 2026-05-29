@@ -4,6 +4,8 @@ import Image from "next/image";
 import { ArrowRight } from "lucide-react";
 
 export default function Services() {
+  const basePath = process.env.NODE_ENV === "production" ? "/kiran-nursery" : "";
+
   const services = [
     {
       id: "landscape-design",
@@ -68,7 +70,7 @@ export default function Services() {
               {/* Image Container with Zoom */}
               <div className="relative h-64 sm:h-72 w-full overflow-hidden bg-nursery-sand">
                 <Image
-                  src={service.image}
+                  src={`${basePath}${service.image}`}
                   alt={service.title}
                   fill
                   sizes="(max-width: 768px) 100vw, 33vw"

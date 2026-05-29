@@ -20,6 +20,7 @@ interface PlantDetails {
 }
 
 export default function FeaturedSelection() {
+  const basePath = process.env.NODE_ENV === "production" ? "/kiran-nursery" : "";
   const [selectedPlant, setSelectedPlant] = useState<PlantDetails | null>(null);
 
   const plants: PlantDetails[] = [
@@ -103,7 +104,7 @@ export default function FeaturedSelection() {
               {/* Plant Image Container */}
               <div className="relative w-full h-72 sm:h-80 overflow-hidden mb-6 flex items-center justify-center bg-gradient-to-b from-nursery-sand/30 to-nursery-sand/10 rounded-xl">
                 <Image
-                  src={plant.image}
+                  src={`${basePath}${plant.image}`}
                   alt={plant.name}
                   width={280}
                   height={280}
@@ -142,7 +143,7 @@ export default function FeaturedSelection() {
               {/* Image Side */}
               <div className="relative bg-gradient-to-b from-nursery-sand to-nursery-sand/30 p-8 flex items-center justify-center min-h-[300px]">
                 <Image
-                  src={selectedPlant.image}
+                  src={`${basePath}${selectedPlant.image}`}
                   alt={selectedPlant.name}
                   width={320}
                   height={320}

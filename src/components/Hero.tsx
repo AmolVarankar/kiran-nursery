@@ -3,13 +3,15 @@
 import { Phone, Calendar } from "lucide-react";
 
 export default function Hero() {
+  const basePath = process.env.NODE_ENV === "production" ? "/kiran-nursery" : "";
+
   return (
     <section className="relative h-[95vh] min-h-[680px] w-full flex items-center justify-center overflow-hidden pt-16">
       {/* Background Image with Dark Vignette Gradient */}
       <div
         className="absolute inset-0 bg-cover bg-center bg-no-repeat transition-transform duration-10000 scale-105 hover:scale-100"
         style={{
-          backgroundImage: `url('/hero_background.png')`,
+          backgroundImage: `url('${basePath}/hero_background.png')`,
         }}
       />
 
